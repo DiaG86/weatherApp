@@ -1,34 +1,39 @@
 var cityInput = document.querySelector("#city-text");
 var cardBody = document.querySelector("#card-body");
 var cityList = document.querySelector("#city-list");
-var cities =["Charlotte"]
 
-renderCities();
 
-function renderCities() {
-  // Clear cityList element
-  cityList.innerHTML = "";
+// renderCityInput();
+
+// function renderCityInput() {
+//   // Clear cityList element
+//   cityList.innerHTML = "";
+
+//   var button= $("#city")
+// 	.val()
+// 	.trim();
   
 
   // Render a new li for each city
-  for (var i = 0; i < cities.length; i++) {
-    var city = cities[i];
+  
 
-    var li = document.createElement("li");
-    li.textContent = cities;
-    li.setAttribute("data-index", i);
+    // var li = document.createElement("li");
+    
+    // li.textContent = cities;
+    // li.setAttribute("data-index", i);
 
-    li.appendChild(button);
-    cityList.appendChild(li);
-  }
-}
+    // li.appendChild(button);
+    // cityList.appendChild(li);}
+
 
 $("#city-text").on("click", function(event) {
 
     var APIKey= "e9561b7f2c048c896aca004a3ef59384"
     var queryURL ="http://api.openweathermap.org/data/2.5/forecast?q={city name},{state code},&appid=" + APIKey;
-
-
+    var list = document.getElementById("city-list")
+    document.getElementById("city-text").innerHTML = list;
+    for (var i = 0; i < cityInput.length; i++) {
+        var city = cityInput[i]};
 
 $.ajax({
     url: queryURL,
@@ -40,19 +45,19 @@ $.ajax({
     // Log the queryURL
     console.log(queryURL);
 
-    var cityText = cityInput.value.trim();
+    // var cityText = cityInput.value.trim();
       
-    // Return from function early if submitted todoText is blank
-    if (cityText === "") {
-        return;
-      }
+    // // Return from function early if submitted todoText is blank
+    // if (cityText === "") {
+    //     return;
+    //   }
     
-      // Add new todoText to todos array, clear the input
-      cities.push(cityText);
-      cityInput.value = "";
+    //   // Add new todoText to todos array, clear the input
+    //   city.push(cityText);
+    //   cityInput.value = "";
     
-      // Re-render the list
-      renderTodos();
+    //   // Re-render the list
+    //   renderCityInput();
    
 
  // Transfer content to HTML
@@ -73,5 +78,4 @@ $.ajax({
 })
 
 });
-
 
